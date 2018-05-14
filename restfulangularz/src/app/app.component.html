@@ -1,0 +1,46 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!<br>
+    {{description}}
+  </h1>
+  <img width="300" alt="Angular Logo" ng-src="assets:images/gitObjectsAngular.png">
+  <!-- code from alan demo -->
+  <br>
+  <button (click)="getStuff()">Click me to do your work for you</button>
+</div>
+<h1>All the Tasks</h1>
+<ul>
+  <li *ngFor="let t of tasks"><p>{{t.title}}</p><p>{{t.description}}</p><p>{{t.completed}}</p>
+      <button (click)="deleteTask(t._id)">Delete Task</button>
+      <button (click)="showTask(t._id)">Show Task Details</button>
+  </li>
+</ul>
+
+<h1>Task Details</h1>
+<h4 style="text-decoration: underline blue;underline">Title:</h4> {{details.title}}
+<h4 style="text-decoration: underline blue;underline">Detials:</h4> {{details.description}}
+<h4 style="text-decoration: underline blue;underline">Completed:</h4> {{details.completed}}
+<h4 style="text-decoration: underline blue;underline">ID:</h4> {{details._id}}
+<br><button (click)="sendToEdit()">Send to Edit Task</button>
+<br><br>
+
+<h1>Edit Task</h1>
+<form (submit)="updateTask()" novalidate="">
+    {{editTask.title}}{{eidtTask.description}}<br>
+    <input type="text" name="editTask.title" [(ngModel)]="editTask.title"><br>
+    <input type="text" name="editTask.description" [(ngModel)]="editTask.description"><br>
+    <input type="submit" name="" value="Edit Task">
+
+
+</form>
+<h1>Create Task</h1>
+<form novalidate="" (submit)="newTaskForm()">
+  {{newtask.title}}{{newtask.description}}<br>
+  <input type="text" name="newtask.title" [(ngModel)]="newtask.title"><br>
+  <input type="text" name="newtask.description" [(ngModel)]="newtask.description"><br>
+  <input type="submit" name="" value="Add this task to list and DB">
+</form>
+<br>
+<br>
+<br>
